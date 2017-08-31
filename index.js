@@ -25,10 +25,15 @@ function parseDir(baseDir) {
     console.log("  ", dirName.bold.cyan);
 
     jsFiles.forEach(file => {
-      console.log("   |---", path.basename(file).green);
+      console.log(
+        "     |--",
+        path.basename(file).red,
+        "->".magenta,
+        `${path.basename(file, ".js") + ".vue"}`.green.bold
+      );
     });
 
-    console.log(" ");
+    console.log("");
   }
 }
 
