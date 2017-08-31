@@ -1,23 +1,35 @@
-"use strict";
+#! /usr/bin/env node
 
 const fs = require("fs");
 const path = require("path");
-const dir = process.cwd();
 const colors = require("colors");
+const cwd = process.cwd();
 
-fs.readdir(dir, (err, files) => {
-  if (err) {
-    throw err;
-  }
+function parseDir(baseDir) {
+  const files = fs.readdirSync(baseDir).map(item => path.join(baseDir, item));
 
-  files
-    .map(file => {
-      return path.join(p, file);
-    })
-    .filter(file => {
-      return fs.statSync(file).isFile();
-    })
-    .forEach(file => {
-      console.log("%s (%s)", file, path.extname(file));
+  const jsFiles = files.filter(file => {
+    return fs.statSync(file).isFile() && path.extname(file) === ".js";
+  });
+
+  const dirs = files.filter(file => {
+    return fs.statSync(file).isDirectory();
+  });
+
+  dirs.forEach(parseDir);
+
+  if (jsFiles.length) {
+    const dirName =
+      cwd == baseDir ? path.basename(baseDir) : baseDir.split(cwd + "/").splice(-1).pop();
+
+    console.log("  ", dirName.bold.cyan);
+
+    jsFiles.forEach(file => {
+      console.log("   |---", path.basename(file).green);
     });
-});
+
+    console.log(" ");
+  }
+}
+
+parseDir(cwd);
