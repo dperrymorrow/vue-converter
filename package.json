@@ -1,0 +1,26 @@
+{
+  "name": "vue-converter",
+  "version": "1.0.0",
+  "description": "convert template string js files to .vue files",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dperrymorrow/vue-converter.git"
+  },
+  "keywords": [
+    "vue",
+    "files"
+  ],
+  "bin": {
+    "snippet": "./index.js"
+  },
+  "author": "David Morrow",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dperrymorrow/vue-converter/issues"
+  },
+  "homepage": "https://github.com/dperrymorrow/vue-converter#readme"
+}
