@@ -24,6 +24,7 @@
   },
   "homepage": "https://github.com/dperrymorrow/vue-converter#readme",
   "dependencies": {
-    "colors": "^1.1.2"
+    "colors": "^1.1.2",
+    "inquirer": "^3.2.3"
   }
 }
