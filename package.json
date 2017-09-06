@@ -1,6 +1,6 @@
 {
   "name": "vue-converter",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "convert template string js files to .vue files",
   "main": "index.js",
   "scripts": {
